@@ -18,6 +18,9 @@ const Layout = () => {
           <li>
             <Link to="/mongo"><button className = 'btn btn-secondary'>MongoDB</button></Link>
           </li>
+          <li>
+            <Link to="/register"><button className = 'btn btn-secondary'>Register</button></Link>
+          </li>
         </ul>
       </nav>
       </div>
