@@ -8,12 +8,14 @@ import Login from "./pages/login";
 import Mongo from "./pages/mongo";
 import Layout from "./pages/layout";
 import Register from "./pages/register";
+import Teacher from "./pages/teacher";
+import Student from "./pages/teacher";
 
 
 
 function main(){
   return (
-    <div class='page-wrapper'>
+    <div className='page-wrapper'>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -21,6 +23,8 @@ function main(){
           <Route path="login" element={<Login />} />
           <Route path="mongo" element={<Mongo />} />
           <Route path="register" element={<Register />} />
+          <Route path="teacher" element={<Teacher />} />
+          <Route path="student" element={<Student />} />
           </Route>
         </Routes>
       </BrowserRouter>
