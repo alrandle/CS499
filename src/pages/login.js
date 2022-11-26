@@ -41,9 +41,9 @@ function Login(){
             setTimeout(() => {
               window.open('teacher', "_self")
             }, 3000);
-          } if(userData.roll === "user"){
+          } else if(userData.roll === "user"){
             setTimeout(() => {
-              window.open('user', "_self")
+              window.open('student', "_self")
             }, 3000);
           } else {
             setTimeout(() => {
