@@ -16,4 +16,5 @@ const userSchema = new mongoose.Schema({
 
 })
 
-mongoose.model('quiz-sample', userSchema);
+mongoose.model('quiz_sample', userSchema);
+module.exports = quiz_sample;
