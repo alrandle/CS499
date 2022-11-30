@@ -1,69 +1,70 @@
-# About
+# Getting Started with Create React App
 
-    This application allows teachers to create quizzes, view grades for quizzes and have their students take quizzes.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Features
+## Available Scripts
 
-* Separate teacher and student account types
-* Secure account creation and storage
-* Create quizzes
-* Take quizzes
-* View quiz grades
+In the project directory, you can run:
 
-## Structure
+### `npm start`
 
-### Dependencies:
-    testing-library/jest-dom 5.16.5
-    testing-library/react 13.4.0
-    testing-library/user-event 13.5.0
-    bcryptjs 2.4.3
-    bootstrap 5.2.2
-    mongoose 6.7.0
-    react 18.2.0
-    react-dom 18.2.0
-    react-scripts 5.0.1
-    web-vitals 2.1.4
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-    mongodb for database/back-end
-    react for front-end
-    boostrap for styling
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Layout
-    Welcome Page
-    | - Home
-    | - Login
-    | - | Quiz / Teacher Page
-    | - | - | quiz (student view)
-    | - | - | quiz grades / create quiz (Teacher view)
-    | - Mongo
+### `npm test`
 
-## Installation
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### git
-    sudo apt install git-all
+### `npm run build`
 
-#### node
-    sudo apt install -y nodejs
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### quiz-app
-    git clone https://github.com/alrandle/CS499
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-#### setup
-    front-end:
-        npx create-react-app quiz-app
-        cd quiz-app
-        npm i -D react-router-dom
-        npm install bootstrap@5
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-    back-end
-        mkdir backend
-        cd backend
-        npm init -y
-        touch index.js
-        npx nodemon index.js
+### `npm run eject`
 
-#### start app
-    in "quiz-app" directory: npm start
-    go to http://localhost:3000 in browser to view app
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Usage
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

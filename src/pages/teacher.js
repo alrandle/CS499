@@ -25,9 +25,6 @@ function Teacher(){
           <br></br>
           <h5> Below are the available quizes made</h5>
         </div>
-        <div id="quiz">
-
-        </div>
         </>
     )
 }

@@ -1,7 +1,7 @@
 /* React Imports */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import axios from 'axios';
 
 import Nav from './Nav';
 import reportWebVitals from './reportWebVitals';
@@ -9,8 +9,8 @@ import reportWebVitals from './reportWebVitals';
 /* CSS IMPORTS */
 import './Nav.css';
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -81,7 +81,9 @@ const renderErrorMessage = (name) =>
           <div className="mb-3">
             <label for="user">Password:
               <input 
-                type="text" 
+              //Daniel
+              //changed from text -> password
+                type="password" 
                 className="form-control"
                 name="pass"
                 required/>
