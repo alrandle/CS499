@@ -5,7 +5,7 @@ import './css/layout.css';
 const Layout = () => {
   return (
     <>
-    <div class="btn-group">
+    <div className="btn-group">
       <nav>
       <img src={logo} alt="logo" width='10%' />
         <ul className='btn-group btn-group-lg'>
@@ -17,9 +17,6 @@ const Layout = () => {
           </li>
           <li>
             <Link to="/mongo"><button className = 'btn btn-secondary'>MongoDB</button></Link>
-          </li>
-          <li>
-            <Link to="/register"><button className = 'btn btn-secondary'>Register</button></Link>
           </li>
         </ul>
       </nav>
