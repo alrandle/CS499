@@ -1,7 +1,6 @@
 /* React Imports */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import axios from 'axios';
 
 import Nav from './Nav';
 import reportWebVitals from './reportWebVitals';

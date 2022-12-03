@@ -4,10 +4,10 @@ const questionSchema = new mongoose.Schema({
     'id': Number,
     'question': String,
     'options': {Num: String},
-    'answer': Num
+    'answer': Number
 })
 
-const userSchema = new mongoose.Schema({
+const quizSchema = new mongoose.Schema({
     'quiz_id': Number,
     'title': String,
     'tags' : [],
@@ -16,5 +16,4 @@ const userSchema = new mongoose.Schema({
 
 })
 
-mongoose.model('quiz_sample', userSchema);
-module.exports = quiz_sample;
+module.exports = mongoose.model('quiz', quizSchema);

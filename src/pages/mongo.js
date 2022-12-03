@@ -5,7 +5,8 @@ class Mongo extends React.Component{
   
   state = {
     username: '',
-    passwrd: ''
+    passwrd: '',
+    posts: []
   };
 
   //gets the current target getting updated
@@ -20,7 +21,7 @@ class Mongo extends React.Component{
 
   };
 
-  handleFormSubmission = (event) =>{
+  handleLoginRequest = (event) =>{
     event.preventDefault();
 
     const payload = {
@@ -29,7 +30,7 @@ class Mongo extends React.Component{
     };
 
     axios({
-      url: '/api/save',
+      url: 'http://localhost:8080/api/login',
       method: 'POST',
       data: payload
     })
@@ -49,7 +50,7 @@ class Mongo extends React.Component{
     <div className='text-center text-white'>
       <h1>Daniel's Mongo Test Box</h1>
       <div className="container mt-3">
-        <form onSubmit={this.handleFormSubmission} autoComplete="off">
+        <form onSubmit={this.handleLoginRequest} autoComplete="off">
           <div className="mb-3 mt-3">
             <label>Username:
               <input 

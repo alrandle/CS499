@@ -9,7 +9,7 @@ import Mongo from "./pages/mongo";
 import Layout from "./pages/layout";
 import Register from "./pages/register";
 import Teacher from "./pages/teacher";
-import Student from "./pages/student";
+import Student from "./pages/teacher";
 import Quiz from "./pages/create-quiz"
 
 
