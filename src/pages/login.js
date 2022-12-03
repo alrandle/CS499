@@ -69,7 +69,7 @@ const renderErrorMessage = (name) =>
       <div className="container mt-3">
         <form onSubmit={handleSubmit} autoComplete="off">
           <div className="mb-3 mt-3">
-            <label for="user">Username:
+            <label>Username:
               <input 
                 type="text" 
                 className="form-control"
@@ -79,7 +79,7 @@ const renderErrorMessage = (name) =>
             </label>
           </div>
           <div className="mb-3">
-            <label for="user">Password:
+            <label>Password:
               <input 
               //Daniel
               //changed from text -> password

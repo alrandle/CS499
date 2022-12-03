@@ -18,9 +18,9 @@ class Mongo extends React.Component{
     this.setState({
       [name]: value
     })
-
   };
-
+  //This is the function that is called when you submit
+  //This creates a payload out of the state then passes it through POST with axios.
   handleLoginRequest = (event) =>{
     event.preventDefault();
 
@@ -43,8 +43,8 @@ class Mongo extends React.Component{
   }
 
   render(){
-    
-    console.log("State: ", this.state);
+    //This outputs the current payloud in the console
+    //console.log("State: ", this.state);
 
     return (
     <div className='text-center text-white'>

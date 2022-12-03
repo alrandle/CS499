@@ -1,3 +1,4 @@
+//Daniel was here :P
 const express = require('express');
 
 const morgan = require('morgan');
@@ -20,7 +21,10 @@ mongoose.connect(MONGODB_URL, () => {
 
 //[Cors]:
 app.use(cors());
+//[Express]: 
+//Json Parser
 app.use(express.json());
+//URL Encoder
 app.use(express.urlencoded({extended: false}));
 
 //[Morgan]: HTTP Request Tracker 

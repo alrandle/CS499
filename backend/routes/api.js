@@ -37,4 +37,23 @@ router.post('/login', (req, res) => {
     });
 });
 
+router.post('/register', (req, res) => {
+    console.log('[Console]: Body-', req.body);
+    const data = req.body;
+
+    const newUser = new User(data);
+
+    newUser.save((error) => {
+        if (error){
+            res.json({
+                msg: "[Console]: Error handling. Please try again later."
+            });
+        }else{
+            res.json({
+                msg: "[Console]: Registration information recieved!"
+            });
+        }
+    })
+});
+
 module.exports = router;
