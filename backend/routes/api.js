@@ -14,7 +14,7 @@ router.get('/user', (req, res) => {
             res.json(data);
         })
         .catch((error) => {
-            console.log('[Console]: Error! ', daerrorta);
+            console.log('[Console]: Error! ', error);
         });
 });
 
@@ -25,7 +25,7 @@ router.get('/quiz', (req, res) => {
             res.json(data);
         })
         .catch((error) => {
-            console.log('[Console]: Error! ', daerrorta);
+            console.log('[Console]: Error! ', error);
         });
 });
 
@@ -34,12 +34,14 @@ router.post('/login', (req, res) => {
     console.log('[Console]: Body-', req.body);
     data = req.body;
 
-
     const user = new User(data);
     
     res.json({
-        msg: "[Console]: Registration information recieved!"
+        msg: "[Console]: Login information recieved!"
     });
+
+    user.find({username: this.body.username});
+
 });
 
 router.post('/register', (req, res) => {
@@ -52,9 +54,6 @@ router.post('/register', (req, res) => {
         msg: "[Console]: Registration information recieved!"
     });
 
-    /**
-     * This method is for actually saving the user to the database, 
-     * Should be uncommented when ready to actually use DB
     newUser.save((error) => {
         if (error){
             res.json({
@@ -65,7 +64,7 @@ router.post('/register', (req, res) => {
                 msg: "[Console]: Registration information recieved!"
             });
         }
-    })**/
+    })
 });
 
 module.exports = router;

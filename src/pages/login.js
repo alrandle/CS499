@@ -33,14 +33,10 @@ class Login extends React.Component{
   handleLoginForum = async (event) =>{
     event.preventDefault();
 
-    const salt = await bcrypt.genSalt(10);
-    const hashpass = await bcrypt.hash(this.state.passwrd, salt);
-
     const payload = {
       username: this.state.username,
       password:{
-        hash: hashpass,
-        salt: salt
+        hash: this.state.passwrd
       }
     };
 
