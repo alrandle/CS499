@@ -5,7 +5,7 @@ import axios from 'axios';
 import bcrypt from "bcryptjs-react";
 
 
-class Register extends React.Component{
+class Test extends React.Component{
 
   state = {
     username: '',
@@ -54,11 +54,9 @@ class Register extends React.Component{
       method: 'POST',
       data: payload
     })
-      //User redirect needs to go in this statement.
       .then(() => {
         console.log('[Console]: Data has been sent to the server!');
       })
-      //Error handling should be sent to a notification box on the DOM
       .catch(() => {
         console.log('[Console]: Internal Server Error!');
       })
@@ -71,7 +69,8 @@ class Register extends React.Component{
 
     return (
       <div className='text-center text-white'>
-        <h1>Registration</h1>
+        <h1>Daniels Test Page</h1>
+        <p>I am currently working on updaing hashing </p>
         <div className="container mt-3">
           <form onSubmit={this.handleRegsitrationForm} autoComplete="off">
             <div className="mb-3 mt-3">
@@ -139,4 +138,4 @@ class Register extends React.Component{
   }
 }
 
-export default Register;
+export default Test;

@@ -32,8 +32,13 @@ router.get('/quiz', (req, res) => {
 
 router.post('/login', (req, res) => {
     console.log('[Console]: Body-', req.body);
+    data = req.body;
+
+
+    const user = new User(data);
+    
     res.json({
-        msg: "We have recieved your data!!!!"
+        msg: "[Console]: Registration information recieved!"
     });
 });
 
@@ -42,7 +47,14 @@ router.post('/register', (req, res) => {
     const data = req.body;
 
     const newUser = new User(data);
+    
+    res.json({
+        msg: "[Console]: Registration information recieved!"
+    });
 
+    /**
+     * This method is for actually saving the user to the database, 
+     * Should be uncommented when ready to actually use DB
     newUser.save((error) => {
         if (error){
             res.json({
@@ -53,7 +65,7 @@ router.post('/register', (req, res) => {
                 msg: "[Console]: Registration information recieved!"
             });
         }
-    })
+    })**/
 });
 
 module.exports = router;

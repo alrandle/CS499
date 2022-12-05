@@ -1,30 +1,115 @@
 import React, { useState } from 'react';
-import ReactDOM from "react-dom";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-function Login(){
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+import bcrypt from "bcryptjs-react";
 
-  const database = [ /*this is the code to change to the actual database*/
-  // connect data base here?
-    {
-      username: "user1",
-      password: "pass1", 
-      roll: "admin"
-    },
-    {
-      username: "user2",
-      password: "pass2",
-      roll: "user"
-    }
-  ];
+class Login extends React.Component{
 
-  const errors = {
+  state = {
+    username: '',
+    passwrd: '',
+  };
+  //[errorMessages, setErrorMessages] = useState({});
+  //[isSubmitted, setIsSubmitted] = useState(false);
+  errors = {
     uname: "Invalid username",
     pass: "Invalid password"
   };
 
-  const handleSubmit = (event) =>{ // use this to handle the submission from the form
+  //gets the current target getting updated
+  //this is redundant, but I do not have the time to clean this up atm.
+  handleEventUpdate = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name]: value
+    })
+  };
+
+
+  handleLoginForum = async (event) =>{
+    event.preventDefault();
+
+    const salt = await bcrypt.genSalt(10);
+    const hashpass = await bcrypt.hash(this.state.passwrd, salt);
+
+    const payload = {
+      username: this.state.username,
+      password:{
+        hash: hashpass,
+        salt: salt
+      }
+    };
+
+    axios({
+      url: 'http://localhost:8080/api/login',
+      method: 'POST',
+      data: payload
+    })
+      //User redirect needs to go in this statement.
+      .then(() => {
+        console.log('[Console]: Data has been sent to the server!');
+      })
+      //Error handling should be sent to a notification box on the DOM
+      .catch(() => {
+        console.log('[Console]: Internal Server Error!');
+      })
+  }
+
+  render(){
+    return(
+      <div className='text-center text-white'>
+        <h1>Login Test</h1>
+        <div className="container mt-3">
+          <form onSubmit={this.handleLoginForum} autoComplete="off">
+            <div className="mb-3 mt-3">
+            <label>Username:
+              <input 
+                type="text" 
+                className="form-control"
+                name='username'
+                value={this.state.username}
+                onChange={this.handleEventUpdate}
+                required/>
+              </label>
+            </div>
+            <div className="mb-3">
+              <label>Password:
+                <input 
+                //Daniel
+                //changed from text -> password
+                  type="password" 
+                  className="form-control"
+                  name="pass"
+                  required/>
+              </label>
+            </div>
+            <button type="submit" className="btn btn-secondary">Submit</button>
+            <a href='/register' className='btn btn-secondary' >Dont have an account?</a>
+          </form>
+        </div>
+      </div>
+    );
+  }
+  /*
+  return (
+    <div className='text-center text-white'>
+      <div className='form'>
+        
+        {isSubmitted ? <div>User is successfully logged in</div> : pageForm}
+      </div>
+    </div>
+  );*/
+}
+
+
+export default Login;
+
+/**
+ *   const handleSubmit = (event) =>{ // use this to handle the submission from the form
     event.preventDefault() //don't touch this
     var { uname, pass } = document.forms[0];
     console.log(uname, pass) // need to delete this in the final review
@@ -60,52 +145,4 @@ const renderErrorMessage = (name) =>
   name === errorMessages.name && (
     <div className='error'>{errorMessages.message}</div>
   );
-
-
-
-  const pageForm = (
-    <div className='text-center text-white'>
-      <h1>Login Test</h1>
-      <div className="container mt-3">
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <div className="mb-3 mt-3">
-            <label>Username:
-              <input 
-                type="text" 
-                className="form-control"
-                name='uname'
-                required/>
-                {renderErrorMessage("uname")}
-            </label>
-          </div>
-          <div className="mb-3">
-            <label>Password:
-              <input 
-              //Daniel
-              //changed from text -> password
-                type="password" 
-                className="form-control"
-                name="pass"
-                required/>
-                {renderErrorMessage("pass")}
-            </label>
-          </div>
-          <button type="submit" className="btn btn-secondary">Submit</button>
-          <a href='/register' className='btn btn-secondary' >Dont have an account?</a>
-        </form>
-      </div>
-    </div>
-
-  );
-  return (
-    <div className='text-center text-white'>
-      <div className='form'>
-        
-        {isSubmitted ? <div>User is successfully logged in</div> : pageForm}
-      </div>
-    </div>
-  );
-}
-
-
-export default Login;
+ */

@@ -16,7 +16,7 @@ const Layout = () => {
             <Link to="/login"><button className = 'btn btn-secondary'>Login</button></Link>
           </li>
           <li>
-            <Link to="/mongo"><button className = 'btn btn-secondary'>MongoDB</button></Link>
+            <Link to="/test"><button className = 'btn btn-secondary'>Daniels Test Page</button></Link>
           </li>
         </ul>
       </nav>
