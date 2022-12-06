@@ -1,13 +1,13 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-const questionSchema = new mongoose.Schema({
+var questionSchema = new mongoose.Schema({
     'id': Number,
     'question': String,
     'options': {Num: String},
     'answer': Number
 })
 
-const quizSchema = new mongoose.Schema({
+var quizSchema = new mongoose.Schema({
     'quiz_id': Number,
     'title': String,
     'tags' : [],

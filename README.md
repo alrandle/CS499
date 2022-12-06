@@ -1,6 +1,9 @@
 # About
 
     This application allows teachers to create quizzes, view grades for quizzes and have their students take quizzes.
+    To start clone the repository then 
+    cd backend
+    npm run all
 
 ## Features
 

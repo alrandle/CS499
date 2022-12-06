@@ -31,13 +31,13 @@ class Register extends React.Component{
   handleRegsitrationForm = async (event) =>{
     event.preventDefault();
 
-    const salt = await bcrypt.genSalt(10);
-    const hashpass = await bcrypt.hash(this.state.passwrd, salt);
+    var salt = await bcrypt.genSaltSync(10);
+    var hash = await bcrypt.hash(this.state.passwrd, salt);
 
     const payload = {
       username: this.state.username,
       password:{
-        hash: hashpass,
+        hash: hash,
         salt: salt
       },
       name:{

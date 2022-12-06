@@ -47,7 +47,7 @@ class Login extends React.Component{
     })
       //User redirect needs to go in this statement.
       .then(() => {
-        console.log('[Console]: Data has been sent to the server!');
+        console.log('[Console]: Data successfully sent to server!');
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
@@ -79,7 +79,9 @@ class Login extends React.Component{
                 //changed from text -> password
                   type="password" 
                   className="form-control"
-                  name="pass"
+                  name="passwrd"
+                  value={this.state.passwrd}
+                  onChange={this.handleEventUpdate}
                   required/>
               </label>
             </div>

@@ -3,8 +3,12 @@ const express = require('express');
 const router = express.Router();
 
 //Mongoose Schemas:
+const mongoose = require('mongoose');
 const User = require("../schema/User");
 const Quiz = require("../schema/Quiz");
+
+//SALT & HASH Plugin
+const bcrypt = require('bcryptjs');
 
 //Routes
 router.get('/user', (req, res) => {
@@ -34,27 +38,32 @@ router.post('/login', (req, res) => {
     console.log('[Console]: Body-', req.body);
     data = req.body;
 
-    const user = new User(data);
-    
-    res.json({
-        msg: "[Console]: Login information recieved!"
+    console.log(`Username: ${data.username}`);
+
+    User.findOne({username: `${data.username}`}, function (err, docs){
+        if(err){
+            console.log(err);
+        }else{
+            console.log("First Function Call : ", docs)
+        }
     });
 
-    user.find({username: this.body.username});
+    console.log(`[Console]: Login information recieved! - ${data}`);
 
+    headers:{
+        Cookie: `UID=${data.username}; PASS=${data.password.hash};`
+        console.log("Cookie Set!");
+    }
 });
+
 
 router.post('/register', (req, res) => {
     console.log('[Console]: Body-', req.body);
-    const data = req.body;
+    data = req.body;
 
-    const newUser = new User(data);
+    userVariable = new User(data);
     
-    res.json({
-        msg: "[Console]: Registration information recieved!"
-    });
-
-    newUser.save((error) => {
+    userVariable.save((error) => {
         if (error){
             res.json({
                 msg: "[Console]: Error handling. Please try again later."
