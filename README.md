@@ -1,7 +1,7 @@
 # About
 * This application allows teachers to create quizzes, view grades for quizzes and have their students take quizzes.
-* To start clone the repository then
-# 
+
+# To Download
     git clone https://github.com/alrandle/CS499.git
     cd backend
     npm run all
