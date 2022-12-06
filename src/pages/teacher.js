@@ -48,20 +48,23 @@ class Teacher extends React.Component{
         let name = "bob" // maybe pass in the user's name from the database? 
         return (
             <>
-            <div className='btn-group'>
-                <nav>
-                    <ul className='btn-group btn-group-lg'>
-                        <li>
-                            <Link to='/create-quiz'><button className='btn btn-secondary'>Create A Quiz</button></Link>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
             <div className='text-center text-white'>
-            <h1>Welcome {name}</h1>
-            <br></br>
-            <h5> Below are the available quizes made</h5>
-            <div>{this.displayQuizes(this.state.quizes)}</div>
+                <h1>Teacher Panel </h1>
+                <br></br>
+                <h5> Here you can view quiz responses</h5>
+                <h5> & create a quiz</h5>
+                <br></br>
+                <div className='d-flex'>
+                    <div className='w-25'>
+                        <h3>Welcome Back</h3>
+                        <p>{name}</p>
+                        <a href='/quiz-creator' className='btn btn-secondary'>Create A Quiz</a>
+                    </div>
+                    <div className='w-100'>
+                        <h3>All Quizes</h3>
+                        {this.displayQuizes(this.state.quizes)}
+                    </div>
+                </div>
             </div>
             </>
         );

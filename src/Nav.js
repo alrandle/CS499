@@ -10,7 +10,7 @@ import Layout from "./pages/layout";
 import Register from "./pages/register";
 import Teacher from "./pages/teacher";
 import Student from "./pages/student";
-import Quiz from "./pages/create-quiz"
+import Creator from "./pages/quiz_creator"
 
 function main(){
   return (
@@ -24,7 +24,7 @@ function main(){
           <Route path="register" element={<Register />} />
           <Route path="teacher" element={<Teacher />} />
           <Route path="student" element={<Student />} />
-          <Route path="create-quiz" element={<Quiz />} />
+          <Route path="quiz-creator" element={<Creator />} />
           </Route>
         </Routes>
       </BrowserRouter>

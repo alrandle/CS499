@@ -67,8 +67,6 @@ class Register extends React.Component{
   
 
   render(){
-    console.log("State: ", this.state);
-
     return (
       <div className='text-center text-white'>
         <h1>Registration</h1>
@@ -108,7 +106,7 @@ class Register extends React.Component{
               </label>
             </div>
             <div className="mb-3">
-              <label>eMail:
+              <label>Email:
               <input 
                 type="email" 
                 placeholder='placeholder@example.com'

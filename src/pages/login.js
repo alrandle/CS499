@@ -1,19 +1,19 @@
+// eslint-disable-next-line
 import React, { useState } from 'react';
+// eslint-disable-next-line
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-
-import bcrypt from "bcryptjs-react";
 
 class Login extends React.Component{
 
   state = {
-    username: '',
+    email: '',
     passwrd: '',
   };
   //[errorMessages, setErrorMessages] = useState({});
   //[isSubmitted, setIsSubmitted] = useState(false);
   errors = {
-    uname: "Invalid username",
+    eml: "Invalid email",
     pass: "Invalid password"
   };
 
@@ -34,10 +34,8 @@ class Login extends React.Component{
     event.preventDefault();
 
     const payload = {
-      username: this.state.username,
-      password:{
-        hash: this.state.passwrd
-      }
+      email: this.state.email,
+      password: this.state.passwrd
     };
 
     axios({
@@ -58,16 +56,17 @@ class Login extends React.Component{
   render(){
     return(
       <div className='text-center text-white'>
-        <h1>Login Test</h1>
+        <h1>Login</h1>
         <div className="container mt-3">
           <form onSubmit={this.handleLoginForum} autoComplete="off">
             <div className="mb-3 mt-3">
-            <label>Username:
+            <label>Email:
               <input 
-                type="text" 
+                type="email"
+                placeholder='placeholder@example.com'
                 className="form-control"
-                name='username'
-                value={this.state.username}
+                name='email'
+                value={this.state.email}
                 onChange={this.handleEventUpdate}
                 required/>
               </label>
