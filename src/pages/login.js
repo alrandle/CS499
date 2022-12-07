@@ -29,10 +29,19 @@ class Login extends React.Component{
       [name]: value
     })
   };
-  errorHandling =() => {
-    let message = ["<br></br><h3 style={color:red}> There was an interal error. Please try again later </h3><br></br>"]
-    let placeLocation = document.getElementById("error-section")
+  errorHandlingServer =() => {
+    const message = ["<br></br><h3> There was an interal error. Please try again later </h3><br></br>"]
+    const placeLocation = document.getElementById("error-section")
     placeLocation.innerHTML = message;
+    let col = "red";
+    placeLocation.style.borderColor = col;
+  }
+  errorHandlingLogin =() => {
+    const message = ["<br></br><h3> Invalid username or password </h3><br></br>"]
+    const placeLocation = document.getElementById("error-section")
+    placeLocation.innerHTML = message;
+    let col = "red";
+    placeLocation.style.borderColor = col;
   }
 
 
@@ -52,19 +61,23 @@ class Login extends React.Component{
       //User redirect needs to go in this statement.
       .then((res) => {
         console.log('[Console]: You are now logged in as', res.data.username);
-        localStorage.setItem('_id', res.data._id);
-        localStorage.setItem('username', res.data.username);
-        localStorage.setItem('email', res.data.email);
-        localStorage.setItem('firstname', res.data.name.firstname);
-        localStorage.setItem('lastname', res.data.name.lastname);
-        localStorage.setItem('hash', res.data.password.hash);
-        localStorage.setItem('salt', res.data.password.salt);
-        localStorage.setItem('role', res.data.role);
-        window.open('/', "_self");
+        if(res.data.username === undefined){
+          this.errorHandlingLogin();
+        } else {
+          localStorage.setItem('_id', res.data._id);
+          localStorage.setItem('username', res.data.username);
+          localStorage.setItem('email', res.data.email);
+          localStorage.setItem('firstname', res.data.name.firstname);
+          localStorage.setItem('lastname', res.data.name.lastname);
+          localStorage.setItem('hash', res.data.password.hash);
+          localStorage.setItem('salt', res.data.password.salt);
+          localStorage.setItem('role', res.data.role);
+          window.open('/', "_self");
+        }
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
-        this.errorHandling();
+        this.errorHandlingServer();
         console.log('[Console]: Internal Server Error!');
       })
   }
