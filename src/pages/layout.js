@@ -42,9 +42,6 @@ const Layout = () => {
             <li>
               <Link to="/logout"><button className = 'btn btn-secondary'>Logout</button></Link>
             </li>
-            <li>
-              <Link to="/test"><button className = 'btn btn-secondary'>Daniels Test Page</button></Link>
-            </li>
           </ul>
         </nav>
         </div>

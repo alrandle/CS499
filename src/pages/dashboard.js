@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 class Dashboard extends React.Component{
+
     state = {
-        posts:[]
+        quizID : '',
+        posts : []
+    }
+
+    handleClick = (id) => {
+        localStorage.setItem('quizID', id);
+        window.open('exam', "_self");
     }
 
     //Calls whenever the React Component mounts.
@@ -23,22 +30,31 @@ class Dashboard extends React.Component{
             })
     }
 
-    displayQuizes = (posts) => {
+    displayQuizes = (posts, role) => {
         if (!posts.length){return null;}
-        
-        return posts.map((post, index) => (
-          <div key={index}>
-            <a href='' className='d-flex btn btn-dark justify-left text-left'>
-              <div className='align-center text-left d-flex'>
-                <p className='align-center'>{post.title} | Uploaded: {post.date} | Creator: {post.creator}</p>
-                <input
-                    type='hidden'
-                    name={post._id}
-                />
-              </div>
-            </a>
-          </div>
-        ));
+        if(role=='admin'){
+            return posts.map((post, index) => (
+                <div id={index} key ={index}>
+                    <div className='align-center text-left'>
+                        <div className='flex-column'><h3 className='align-center'>{post.title}</h3>
+                            <p></p></div>
+                      <p className='align-center'>Uploaded: {post.date} by {post.creator}</p>
+                      <button id={post._id} type="button" className="btn btn-secondary" onClick={() => this.handleClick(post._id)}>Load</button>
+                      <br></br><br></br>
+                    </div>
+                </div>
+              ));
+        }else{
+            return posts.map((post, index) => (
+                <div key={index}>
+                  <a id={post._id} className='d-flex btn btn-dark justify-left text-left'>
+                    <div className='align-center text-left d-flex'>
+                      <p className='align-center'>{post.title} | Uploaded: {post.date} | Creator: {post.creator}</p>
+                    </div>
+                  </a>
+                </div>
+              ));
+        }
     };
 
     handleEventUpdate = (event) => {
@@ -49,7 +65,6 @@ class Dashboard extends React.Component{
         this.setState({
           [name]: value
         })
-    
       };
 
 
@@ -101,8 +116,9 @@ class Dashboard extends React.Component{
                     </div>
                     <div className='w-100'>
                         <h3>All Quizes</h3>
+                        <hr></hr>
                         <div className='quizs'>
-                        {this.displayQuizes(this.state.posts)}
+                        {this.displayQuizes(this.state.posts, role)}
                         </div>
                     </div>
                 </div>

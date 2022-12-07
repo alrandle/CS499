@@ -1,12 +1,29 @@
 // eslint-disable-next-line
 import React from 'react';
-import axios from 'axios';
 
 class Logout extends React.Component{
 
+  //This is boosted asf, this could be done way better but YOLO I got a class to pass
+  //so this will do IG
+
+  logout = () =>{
+    localStorage.clear('_id');
+    localStorage.clear('username');
+    localStorage.clear('email');
+    localStorage.clear('firstname',);
+    localStorage.clear('lastname');
+    localStorage.clear('hash');
+    localStorage.clear('salt');
+    localStorage.clear('role');
+    window.open('/', "_self");
+  }
+
   render(){
+    this.logout();
     return(
-      <div>logout page </div>
+      <div className='text-center text-white'>
+        <h1>You are now being logged out</h1>
+      </div>
     );
   }
   /*
