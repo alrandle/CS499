@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import "./css/error.css"
 
 import bcrypt from "bcryptjs-react";
 
@@ -49,6 +50,14 @@ class Register extends React.Component{
       lastlogin: new Date()
     };
 
+    errorHandlingServer =() => {
+      const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
+      const placeLocation = document.getElementById("error-section")
+      placeLocation.innerHTML = message;
+      let col = "red";
+      placeLocation.style.borderColor = col;
+    }
+
     axios({
       url: 'http://localhost:8080/api/register',
       method: 'POST',
@@ -61,6 +70,7 @@ class Register extends React.Component{
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
+        this.errorHandlingServer();
         console.log('[Console]: Internal Server Error!');
       })
   }
@@ -71,6 +81,8 @@ class Register extends React.Component{
     return (
       <div className='text-center text-white'>
         <h1>Registration</h1>
+        <div className='text-center text-red' id='error-section'>
+        </div>
         <div className="container mt-3">
           <form onSubmit={this.handleRegsitrationForm} autoComplete="off">
             <div className="mb-3 mt-3">
