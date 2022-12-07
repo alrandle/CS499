@@ -54,7 +54,7 @@ class Login extends React.Component{
         localStorage.setItem('hash', res.data.password.hash);
         localStorage.setItem('salt', res.data.password.salt);
         localStorage.setItem('role', res.data.role);
-        window.location.href = '/login';
+        window.open('/', "_self");
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {

@@ -57,6 +57,7 @@ class Register extends React.Component{
       //User redirect needs to go in this statement.
       .then(() => {
         console.log('[Console]: Data has been sent to the server!');
+        window.open('login', "_self");
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {

@@ -1,74 +1,43 @@
 # About
-* This application allows teachers to create quizzes, view grades for quizzes and have their students take quizzes.
-
-# To Download
-    git clone https://github.com/alrandle/CS499.git
-    cd backend
-    npm run all
-    
+* This application allows users to take quizzes for grades and for administrators to deploy new quizzes.
+* This project was to test out the waters of React and NodeJS app development & deployment.
 
 ## Features
+* Individual User Accounts
+* Secure front-end password salting & hashing
+* Take quizzes for grades
+* Create quizzes for users
+* Quiz Analytics
 
-* Separate teacher and student account types
-* Secure account creation and storage
-* Create quizzes
-* Take quizzes
-* View quiz grades
-
-## Structure
-
-### Dependencies:
-    testing-library/jest-dom 5.16.5
-    testing-library/react 13.4.0
-    testing-library/user-event 13.5.0
-    bcryptjs 2.4.3
-    bootstrap 5.2.2
-    mongoose 6.7.0
-    react 18.2.0
-    react-dom 18.2.0
-    react-scripts 5.0.1
-    web-vitals 2.1.4
-
-    mongodb for database/back-end
-    react for front-end
-    boostrap for styling
+# To Download & Install
+    $ git clone https://github.com/alrandle/CS499.git
+    $ cd ./CS499/backend
+    $ npm run all
+    
+### Backend Dependencies:
+    "axios": "^1.2.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.7.4",
+    "morgan": "^1.10.0"
+    
+### Frontend Dependencies: 
+    "axios": "^1.2.0"
+    "bcryptjs-react": "^2.4.6"
+    "bootstrap": "^5.2.3"
+    "react": "^18.2.0"
+    "react-dom": "^18.2.0"
+    "react-scripts": "5.0.1"
+    "web-vitals": "^2.1.4"
 
 ### Layout
-    Welcome Page
-    | - Home
-    | - Login
-    | - | Quiz / Teacher Page
-    | - | - | quiz (student view)
-    | - | - | quiz grades / create quiz (Teacher view)
-    | - Mongo
-
-## Installation
-
-#### git
-    sudo apt install git-all
-
-#### node
-    sudo apt install -y nodejs
-
-#### quiz-app
-    git clone https://github.com/alrandle/CS499
-
-#### setup
-    front-end:
-        npx create-react-app quiz-app
-        cd quiz-app
-        npm i -D react-router-dom
-        npm install bootstrap@5
-
-    back-end
-        mkdir backend
-        cd backend
-        npm init -y
-        touch index.js
-        npx nodemon index.js
-
-#### start app
-    in "quiz-app" directory: npm start
-    go to http://localhost:3000 in browser to view app
-
-## Usage
+    Quiz-App
+    | - Home : Home page/About section
+    | - Login/Registration : Returning/New User forums
+    | - Dashboard (Student/Teacher Dash) : For users / Admins to navigate webapp functions
+    | - | Exam (Quiz function)
+    | - | Quiz Creator
+    | - | Analytics
