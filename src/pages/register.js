@@ -28,6 +28,14 @@ class Register extends React.Component{
     })
   };
 
+  errorHandlingServer =() => {
+    const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
+    const placeLocation = document.getElementById("error-section")
+    placeLocation.innerHTML = message;
+    let col = "red";
+    placeLocation.style.borderColor = col;
+  }
+
 
   handleRegsitrationForm = async (event) =>{
     event.preventDefault();
@@ -50,23 +58,16 @@ class Register extends React.Component{
       lastlogin: new Date()
     };
 
-    errorHandlingServer =() => {
-      const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
-      const placeLocation = document.getElementById("error-section")
-      placeLocation.innerHTML = message;
-      let col = "red";
-      placeLocation.style.borderColor = col;
-    }
-
     axios({
       url: 'http://localhost:8080/api/register',
       method: 'POST',
       data: payload
     })
       //User redirect needs to go in this statement.
-      .then(() => {
+      .then(response => {
+        //console.log(response.status) // use this to test response status from server
         console.log('[Console]: Data has been sent to the server!');
-        window.open('login', "_self");
+        //window.open('login', "_self");
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
