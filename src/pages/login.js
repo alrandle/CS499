@@ -30,7 +30,7 @@ class Login extends React.Component{
     })
   };
   errorHandlingServer =() => {
-    const message = ["<br></br><h3> There was an interal error. Please try again later </h3><br></br>"]
+    const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
     const placeLocation = document.getElementById("error-section")
     placeLocation.innerHTML = message;
     let col = "red";
