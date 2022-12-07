@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./css/error.css"
 
 class Login extends React.Component{
 
@@ -28,6 +29,11 @@ class Login extends React.Component{
       [name]: value
     })
   };
+  errorHandling =() => {
+    let message = ["<br></br><h3 style={color:red}> There was an interal error. Please try again later </h3><br></br>"]
+    let placeLocation = document.getElementById("error-section")
+    placeLocation.innerHTML = message;
+  }
 
 
   handleLoginForum = async (event) =>{
@@ -58,6 +64,7 @@ class Login extends React.Component{
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
+        this.errorHandling();
         console.log('[Console]: Internal Server Error!');
       })
   }
@@ -66,6 +73,8 @@ class Login extends React.Component{
     return(
       <div className='text-center text-white'>
         <h1>Login</h1>
+        <div className='text-center text-red' id='error-section'>
+        </div>
         <div className="container mt-3">
           <form onSubmit={this.handleLoginForum} autoComplete="off">
             <div className="mb-3 mt-3">
