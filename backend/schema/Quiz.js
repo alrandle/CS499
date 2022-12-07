@@ -8,12 +8,13 @@ var questionSchema = new mongoose.Schema({
 })
 
 var quizSchema = new mongoose.Schema({
+    'creator' : String,
+    'creator_id' : String,
+    'date': Date,
     'quiz_id': Number,
     'title': String,
     'tags' : [],
-    'questions' : {questionSchema},
-    'date': Date
-
+    'questions' : {questionSchema}
 })
 
-module.exports = mongoose.model('quiz', quizSchema);
+module.exports = mongoose.model('quizs', quizSchema);

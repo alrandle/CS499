@@ -4,7 +4,7 @@ const questionSchema = new mongoose.Schema({
     'id': Number,
     'question': String,
     'options': {Num: String},
-    'answer': Num
+    'answer': Number
 })
 
 const userSchema = new mongoose.Schema({
@@ -13,7 +13,6 @@ const userSchema = new mongoose.Schema({
     'tags' : [],
     'questions' : {questionSchema},
     'date': Date
-
 })
 
-mongoose.model('quiz-sample', userSchema);
+mongoose.model('quiz_response', userSchema);

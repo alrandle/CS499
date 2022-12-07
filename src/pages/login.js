@@ -1,7 +1,5 @@
 // eslint-disable-next-line
 import React, { useState } from 'react';
-// eslint-disable-next-line
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 class Login extends React.Component{
@@ -9,7 +7,9 @@ class Login extends React.Component{
   state = {
     email: '',
     passwrd: '',
+    redirect: false
   };
+
   //[errorMessages, setErrorMessages] = useState({});
   //[isSubmitted, setIsSubmitted] = useState(false);
   errors = {
@@ -44,8 +44,17 @@ class Login extends React.Component{
       data: payload
     })
       //User redirect needs to go in this statement.
-      .then(() => {
-        console.log('[Console]: Data successfully sent to server!');
+      .then((res) => {
+        console.log('[Console]: You are now logged in as', res.data.username);
+        localStorage.setItem('_id', res.data._id);
+        localStorage.setItem('username', res.data.username);
+        localStorage.setItem('email', res.data.email);
+        localStorage.setItem('firstname', res.data.name.firstname);
+        localStorage.setItem('lastname', res.data.name.lastname);
+        localStorage.setItem('hash', res.data.password.hash);
+        localStorage.setItem('salt', res.data.password.salt);
+        localStorage.setItem('role', res.data.role);
+        window.location.href = '/login';
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
@@ -68,14 +77,13 @@ class Login extends React.Component{
                 name='email'
                 value={this.state.email}
                 onChange={this.handleEventUpdate}
-                required/>
-              </label>
+                required
+              />
+            </label>
             </div>
             <div className="mb-3">
               <label>Password:
                 <input 
-                //Daniel
-                //changed from text -> password
                   type="password" 
                   className="form-control"
                   name="passwrd"
@@ -106,7 +114,7 @@ class Login extends React.Component{
 export default Login;
 
 /**
- *   const handleSubmit = (event) =>{ // use this to handle the submission from the form
+ *  const handleSubmit = (event) =>{ // use this to handle the submission from the form
     event.preventDefault() //don't touch this
     var { uname, pass } = document.forms[0];
     console.log(uname, pass) // need to delete this in the final review

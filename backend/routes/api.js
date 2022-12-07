@@ -10,6 +10,7 @@ const store = new session.MemoryStore();
 const mongoose = require('mongoose');
 const User = require("../schema/User");
 const Quiz = require("../schema/Quiz");
+const Response = require("../schema/Response");
 
 //SALT & HASH Plugin
 const bcrypt = require('bcryptjs');
@@ -30,16 +31,40 @@ app.use((req, res, next) => {
 })
 
 //Routes
-router.get('/quiz', (req, res) => {
-    query = Quiz.find({});
-    console.log(query);
-
-    if(err){
-        res.json({
-            msg: "[Console]: Error handling. Please try again later."
-        });
-    }
+router.get('/quiz/selection', (req, res) => {
+    Quiz.find({})
+        .then((data) => {
+            //console.log("Data: ", data);
+            res.json(data);
+        })
+        .catch((error)=>{
+            console.log("[Console]: ", error)
+        })
 });
+
+//Routes
+router.post(`/quiz/exam`, (req, res) => {
+    Quiz.find({})
+        .then((data) => {
+            //console.log("Data: ", data);
+            res.json(data);
+        })
+        .catch((error)=>{
+            console.log("[Console]: ", error)
+        })
+});
+
+router.get('/quiz/responses', (req, res) => {
+    Response.find({})
+        .then((data) => {
+            //console.log("Data: ", data);
+            res.json(data);
+        })
+        .catch((error)=>{
+            console.log("[Console]: ", error)
+        })
+});
+
 
 
 router.post('/login', (req, res) => {
@@ -56,14 +81,9 @@ router.post('/login', (req, res) => {
             console.log(err);
         }else{
             const match = bcrypt.compareSync(data.password, docs.password.hash);
-            console.log(`Is match?: ${match}`);
+            //console.log(`Is match?: ${match}`);
             if(match){
-                req.session.authenticated = true;
-                req.session.user = {
-                    username, hash
-                };
-                res.json(req.session);
-                console.log(req.session);
+                res.status(200).send(docs);
 
                 //handle returning $_SESSION variables
 
@@ -71,6 +91,7 @@ router.post('/login', (req, res) => {
 
             }else{
                 //return invalid password
+                res.send("[Console]: Hash not matched! Try Again!");
             }
             
         }
@@ -86,16 +107,15 @@ router.post('/register', (req, res) => {
 
     User.findOne({email: `${data.email}`}, function (err, docs){
         if(err){
-            res.json({
-                msg: "[Console]: Error handling. Please try again later."
-            });
-            console.log(err);
+            res.send("[Console]: Error handling! Please try again later.");
+            console.log("[Console]: Error handling! Please try again later.", err);
         }else{
-            console.log("Queue: ", docs);
-            if(docs.email != data.email){
-                userVariable = new User(data);
+            //console.log("Queue: ", docs);
+            if(docs == null){
+                
+                newUser = new User(data);
     
-                userVariable.save((error) => {
+                newUser.save((error) => {
                     if (error){
                         res.json({
                             msg: "[Console]: Error handling. Please try again later."
@@ -115,6 +135,28 @@ router.post('/register', (req, res) => {
             
         }
         
+    });
+});
+
+//Route for uploading the quiz from the quiz-creator page
+router.post('/quiz-upload', (req, res) => {
+    console.log('[Console]: Body-', req.body);
+    data = req.body;
+
+    const quiz = new Quiz(data);
+
+    userVariable.save((error) => {
+        if (error){
+            res.json({
+                msg: "[Console]: Error handling. Please try again later."
+            });
+            console.log("[Console]: Error! ", err);
+        }else{
+            res.json({
+                msg: "[Console]: Registration information recieved!"
+            });
+            console.log("[Console]: User Successfully uploaded to database!");
+        }
     });
 });
 
