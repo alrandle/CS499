@@ -111,7 +111,8 @@ router.post('/register', (req, res) => {
 
     User.findOne({email: `${data.email}`}, function (err, docs){
         if(err){
-            res.send("[Console]: Error handling! Please try again later.");
+            //res.send("[Console]: Error handling! Please try again later.");
+            res.status(404).send("Error handling");
             console.log("[Console]: Error handling! Please try again later.", err);
         }else{
             //console.log("Queue: ", docs);
