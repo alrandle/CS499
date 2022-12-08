@@ -17,7 +17,6 @@ class Register extends React.Component{
   };
 
   //gets the current target getting updated
-  //this is redundant, but I do not have the time to clean this up atm.
   handleEventUpdate = (event) => {
     const target = event.target;
     const name = target.name;
@@ -28,6 +27,7 @@ class Register extends React.Component{
     })
   };
 
+  // Register error handler
   errorHandlingServer =() => {
     const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
     const placeLocation = document.getElementById("error-section")
@@ -36,7 +36,7 @@ class Register extends React.Component{
     placeLocation.style.borderColor = col;
   }
 
-
+  // Account registration
   handleRegsitrationForm = async (event) =>{
     event.preventDefault();
 
@@ -78,6 +78,7 @@ class Register extends React.Component{
 
   
 
+  // Registration form
   render(){
     return (
       <div className='text-center text-white'>

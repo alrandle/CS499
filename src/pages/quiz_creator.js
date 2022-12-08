@@ -15,6 +15,7 @@ class Creator extends React.Component{
         })
     };
 
+    // Load quiz creator
     render(){
         return (
             <div className="text-center text-white">

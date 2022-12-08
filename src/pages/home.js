@@ -3,7 +3,9 @@ import logo from '../logo.svg';
 
 class Home extends React.Component{
   render(){
+    // If email blank
     if(localStorage.getItem('email') == null){
+      // Welcome page
       return(
         <div className='text-center text-white'>
           <h1>Welcome</h1>
@@ -14,6 +16,7 @@ class Home extends React.Component{
   
       );
     }else{
+      // log in message
       return(
         <div className='text-center text-white'>
           <h1>Welcome</h1>

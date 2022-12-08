@@ -3,21 +3,24 @@ import axios from 'axios';
 
 class Dashboard extends React.Component{
 
+  // default state of quiz
     state = {
         quizID : '',
         posts : []
     }
 
+    // Handle a click on the quiz.
     handleClick = (id) => {
         localStorage.setItem('quizID', id);
         window.open('exam', "_self");
     }
 
-    //Calls whenever the React Component mounts.
+    // Calls whenever the React Component mounts.
     componentDidMount = () => {
       this.getQuizes();
     }
 
+    // Returns available quizzes.
     getQuizes = () => {
         axios.get('http://localhost:8080/api/quiz/selection')
             .then((response) => {
@@ -31,8 +34,11 @@ class Dashboard extends React.Component{
     }
 
     displayQuizes = (posts, role) => {
+        // Do nothing if there are no quizzes
         if (!posts.length){return null;}
+        // If the role is admin
         if(role=='admin'){
+          // Returns uploaded quizzes
             return posts.map((post, index) => (
                 <div id={index} key ={index}>
                     <div className='align-center text-left'>
@@ -44,7 +50,10 @@ class Dashboard extends React.Component{
                     </div>
                 </div>
               ));
-        }else{
+        }
+        // Not admin
+        else {
+          // Returns quizzes with info
             return posts.map((post, index) => (
                 <div key={index}>
                   <a id={post._id} className='d-flex btn btn-dark justify-left text-left'>
@@ -57,6 +66,7 @@ class Dashboard extends React.Component{
         }
     };
 
+    // Sets the state on the event
     handleEventUpdate = (event) => {
         const target = event.target;
         const name = target.name;
@@ -74,6 +84,7 @@ class Dashboard extends React.Component{
         //});
         // the above code could be used in some way to remove the nav bar from the top of the page
 
+        // If not logged-in
         if(localStorage.getItem('firstname') == null || localStorage.getItem('lastname') == null){
           return (
             <div className='text-center text-white'>
@@ -85,6 +96,7 @@ class Dashboard extends React.Component{
             </div>
           )};
         
+        // Generates a unique identifier for the local storage.
         const id = localStorage.getItem('id');
         const name = localStorage.getItem('firstname') + " " + localStorage.getItem('lastname'); 
         const username = localStorage.getItem('username');
@@ -95,6 +107,7 @@ class Dashboard extends React.Component{
          * So that someone cannot go in and change their role on the local end and 
          * gain unauthorized access. This is just here as proof of concept for now
          */
+        // If admin, show dashboard with quiz creater and analytics/grades
         if(localStorage.getItem('role') == 'admin'){
           return (
             <>
@@ -125,7 +138,9 @@ class Dashboard extends React.Component{
             </div>
             </>
         );
-        }else{
+        }
+        // If not admin, show normal dashboard
+        else {
           return (
             <>
             <div className='text-center text-white'>

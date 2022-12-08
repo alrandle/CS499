@@ -13,6 +13,7 @@ import Dashboard from "./pages/dashboard";
 import Creator from "./pages/quiz_creator";
 import Exam from "./pages/exam";
 
+// Directs movement between pages
 function main(){
   return (
     <div className='page-wrapper'>

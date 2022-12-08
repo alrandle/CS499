@@ -3,7 +3,9 @@ import logo from '../logo.svg';
 import './css/layout.css';
 
 const Layout = () => {
+  // If email or username is blank
   if(localStorage.getItem('email') == null || localStorage.getItem('username') == null){
+    // Load buttons
     return (
       <>
       <div className="btn-group">
@@ -26,7 +28,10 @@ const Layout = () => {
         <Outlet />
       </>
     )
-  }else{
+  }
+  // Email and username not blank
+  else{
+    // Show logout button instead of login
     return (
       <>
       <div className="btn-group">

@@ -7,12 +7,14 @@ class Exam extends React.Component{
         posts:[]
     }
 
+    // Calls whenever the React Component mounts.
     componentDidMount = () => {
         this.state.quizID = localStorage.getItem('quizID')
         this.getQuiz();
       }
 
 
+    // Get a quiz
     getQuiz = (id) => {
         axios.get('http://localhost:8080/api/quiz/exam', {params:{quizID: id}})
             .then((response) => {
@@ -25,6 +27,7 @@ class Exam extends React.Component{
             })
     }
 
+    // Returns a map of posts.
     displayQuiz = (posts) => {
         const map = posts.map((post, index) => (
             <div id={index} key={index}>
@@ -38,6 +41,7 @@ class Exam extends React.Component{
     }
     
 
+    // Updates the state of the target.
     handleEventUpdate = (event) => {
         const target = event.target;
         const name = target.name; 
@@ -50,6 +54,7 @@ class Exam extends React.Component{
       };
 
 
+    // Renders quiz
     render(){;
         return(
             

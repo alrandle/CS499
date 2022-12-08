@@ -29,6 +29,7 @@ class Login extends React.Component{
       [name]: value
     })
   };
+  // Internal error handling
   errorHandlingServer =() => {
     const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
     const placeLocation = document.getElementById("error-section")
@@ -36,6 +37,7 @@ class Login extends React.Component{
     let col = "red";
     placeLocation.style.borderColor = col;
   }
+  // Invalid username/password error handling
   errorHandlingLogin =() => {
     const message = ["<br></br><h3> Invalid username or password </h3><br></br>"]
     const placeLocation = document.getElementById("error-section")
@@ -83,6 +85,7 @@ class Login extends React.Component{
   }
 
   render(){
+    // Generates a form to log in a user.
     return(
       <div className='text-center text-white'>
         <h1>Login</h1>

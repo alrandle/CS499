@@ -28,6 +28,7 @@ class Test extends React.Component{
   displayQuizes = (posts) => {
       if (!posts.length){return null;}
       
+      // Return quiz with related info
       return posts.map((post, index) => (
         <div key={index}>
           <a href='' className='d-flex btn btn-dark justify-left text-left'>

@@ -2,10 +2,8 @@
 import React from 'react';
 
 class Logout extends React.Component{
-
-  //This is boosted asf, this could be done way better but YOLO I got a class to pass
-  //so this will do IG
-
+  
+  // Logout the user.
   logout = () =>{
     localStorage.clear('_id');
     localStorage.clear('username');
@@ -18,6 +16,7 @@ class Logout extends React.Component{
     window.open('/', "_self");
   }
 
+  // Log out message
   render(){
     this.logout();
     return(
