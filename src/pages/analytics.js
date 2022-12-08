@@ -28,22 +28,13 @@ async function loadGrades(){
       let incorrect = tempBackend[i]["incorrect"]
       let percent = tempBackend[i]["percent"]
 
-      const selectedColor = {color: "purple"} // for error
-      if(percent < 60){
-        selectedColor = {color: "red"}
-      } else if (percent > 60 && percent < 90){
-        selectedColor = {color: "yellow"}
-      } else {
-        selectedColor = {color: "green"}
-      }
-
       console.log(name, correct, incorrect, percent)
       let messageToAdd = `
       <div class="analytics-box">
       <h3 class="analytics"> Name: ${name}</h3>   
       <h3 class="analytics">Correct Answers: ${correct}</h3>   
       <h3 class="analytics">Incorrect Answers: ${incorrect}</h3>   
-      <h3 class="analytics style={${selectedColor}}">Percent: ${percent}</h3>
+      <h3 class="analytics">Percent: ${percent}</h3>
       </div>`
 
       const locationOfGrades = document.getElementById("student-grades")
