@@ -14,8 +14,7 @@
     $ cd ./CS499/backend
     $ npm run all
     
-### Backend Dependencies:
-    "axios": "^1.2.0",
+### Backend Dependencies:                  
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
@@ -23,6 +22,14 @@
     "express-session": "^1.17.3",
     "mongoose": "^6.7.4",
     "morgan": "^1.10.0"
+    
+### Backend Dependencies usage:
+    "bcryptjs": Enables storing passwords as hashed passwords
+    "concurrently": Allows running sever and client side simutaneously
+    "cors": Enables cors to prevent possible cors policy security errors
+    "express": Back end web apllication framwork used to build APIs
+    "mongoose": Allows ease in creating and managing MongoDB data
+    "morgan": HTTP logger. Posts requests and errors
     
 ### Frontend Dependencies: 
     "axios": "^1.2.0"
