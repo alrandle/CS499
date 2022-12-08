@@ -27,7 +27,7 @@ class Logout extends React.Component{
     this.logout();
     return(
       <div className='text-center text-white'>
-        <h1>You are now being logged out</h1>
+        <h1 className='textFont'>You are now being logged out</h1>
       </div>
     );
   }

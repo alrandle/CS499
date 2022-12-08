@@ -88,7 +88,7 @@ class Register extends React.Component{
   render(){
     return (
       <div className='text-center text-white'>
-        <h1>Registration</h1>
+        <h1 className='textFont'>Registration</h1>
         <div className='text-center text-red' id='error-section'>
         </div>
         <div className="container mt-3">

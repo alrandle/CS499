@@ -66,7 +66,7 @@ class Creator extends React.Component{
     render(){
         return (
             <div className="text-center text-white">
-                <h1> Quiz Creator </h1>
+                <h1 className="textFont"> Quiz Creator </h1>
                 <button onClick={newQuestion}>New Question</button>
                     <div className="w-100">
                     <form onSubmit={this.handleRegsitrationForm} autoComplete="off">
