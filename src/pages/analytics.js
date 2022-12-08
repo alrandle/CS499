@@ -8,29 +8,50 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import "./css/quiz-create.css" //going to include analytics css in this file
 
-let loaded = false
-async function selectQuiz(){
-  //have options for the quizes?
-  if(loaded == false){
-    const tempQuizes = [
-      "Quiz 1",
-      "Quiz 2",
-    ]
-    let messageLocation = document.getElementById("current-quiz")
-    let currentMessage = messageLocation.innerHTML
-    for(let i = 0; i < tempQuizes.length; i++){
-      let message = `<button id=${tempQuizes} type="button" onClick={}>${tempQuizes[i]}</button>`
-      currentMessage = currentMessage + message
-      messageLocation.innerHTML = currentMessage
+let checkState = false
 
-    }
-    loaded = true
-  }
-}
+const tempBackend = [
+  {"name":"Bob", "correct":"3", "incorrect":"0", "percent": "100"},
+  {"name":"Jeff", "correct":"1", "incorrect":"2", "percent": "33"},
+]
 
 async function loadGrades(){
-  console.log("made it")
+  if(checkState == false){ 
+    checkState = true
+    // put this in a loop maybe? depending on how many grades there are?
+    for(let i = 0; i < tempBackend.length; i++){
+      // assume to replace these with axios request
+      let name = tempBackend[i]["name"]
+      let correct = tempBackend[i]["correct"]
+      let incorrect = tempBackend[i]["incorrect"]
+      let percent = tempBackend[i]["percent"]
+
+      const selectedColor = {color: "purple"} // for error
+      if(percent < 60){
+        selectedColor = {color: "red"}
+      } else if (percent > 60 && percent < 90){
+        selectedColor = {color: "yellow"}
+      } else {
+        selectedColor = {color: "green"}
+      }
+
+      console.log(name, correct, incorrect, percent)
+      let messageToAdd = `
+      <div class="analytics-box">
+      <h3 class="analytics"> Name: ${name}</h3>   
+      <h3 class="analytics">Correct Answers: ${correct}</h3>   
+      <h3 class="analytics">Incorrect Answers: ${incorrect}</h3>   
+      <h3 class="analytics style={${selectedColor}}">Percent: ${percent}</h3>
+      </div>`
+
+      const locationOfGrades = document.getElementById("student-grades")
+      let currentMessage = locationOfGrades.innerHTML
+      currentMessage += messageToAdd
+      locationOfGrades.innerHTML = currentMessage
+    }
+  }
   
 }
 
@@ -68,7 +89,7 @@ class Analytics extends React.Component{
         <br></br>
         <div className='text-center text-white'>
           <h3>Here are your individual student grades</h3>
-          <div id='student-grades'></div>
+          <div id='student-grades'> </div>
         </div>
       </div>
     )
