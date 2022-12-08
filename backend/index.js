@@ -5,12 +5,12 @@
  * Daniel
  */
 
-const express = require('express');
+const express = require('express');             // Back end web app framework
 
-const morgan = require('morgan');
-const mongoose = require("mongoose");
-const cors = require('cors');
-const path = require('path');
+const morgan = require('morgan');               // HTTP requests nad errors logger
+const mongoose = require("mongoose");           // Object Date Model for MongoDB
+const cors = require('cors');                   // Prevent CORS errors when running server and client on different addresses
+const path = require('path');                   // API router
 
 const app = express();
 const PORT = process.env.PORT || 8080;
