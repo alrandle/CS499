@@ -1,4 +1,10 @@
-// eslint-disable-next-line
+/* login.js
+ * This page is responsible for letting users login to the app
+ * 
+ * Daniel
+ */
+
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./css/error.css"

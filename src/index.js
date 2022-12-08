@@ -1,3 +1,10 @@
+/* index.js
+ * This index.js file is the frontend client that is called when a node server is created.
+ * Modules and global CSS should get called in here. 
+ * 
+ * Daniel
+ */
+
 /* React Imports */
 import React from 'react';
 import ReactDOM from 'react-dom/client';

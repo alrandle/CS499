@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+/* exam.js
+ * This page is responsible for the actual exam portion.
+ * Should grab a quiz from the database then give the user to solve questions
+ * 
+ * Daniel
+ */
+
+import React from 'react';
 import axios from 'axios';
 
 class Exam extends React.Component{
@@ -23,20 +30,24 @@ class Exam extends React.Component{
                 console.log("Data retrieved!", data);
             })
             .catch((e) => {
-              console.log("Error!", e)
+                console.log("Error!", e)
             })
     }
+
 
     // Returns a map of posts.
     displayQuiz = (posts) => {
         const map = posts.map((post, index) => (
             <div id={index} key={index}>
-                <p>Q.{index+1}</p>
-                <div className='text-left d-flex'>
-                    <p className='align-center'>{post.title} | Uploaded: {post.date} | Creator: {post.creator}</p>
-                </div>
+            <form>
+                <h1 id={post.title}>{post.title}</h1>
+                <p id={post.creator}>By {post.creator}</p>
+                <p>Question </p>
+                <button type='button' className='btn btn-secondary'>Submit</button>
+            </form>
             </div>
             ));
+
         return map;
     }
     
@@ -50,20 +61,14 @@ class Exam extends React.Component{
         this.setState({
           [name]: value
         })
-        console.log(this.state);
       };
 
 
     // Renders quiz
     render(){;
-        const title = 'Test';
         return(
-            
             <div className='text-center text-white'>
-                <h1>{title}</h1>
-                <div>
-                    {this.displayQuiz(this.state.posts)}
-                </div>
+                {this.displayQuiz(this.state.posts)}
             </div>
         );
     }

@@ -1,3 +1,10 @@
+/* Quiz.js
+ * This page is responsible for creating the mongoose Quiz schema model'
+ * connects to the table `quizs`
+ * 
+ * Daniel
+ */
+
 var mongoose = require('mongoose');
 
 var questionSchema = new mongoose.Schema({

@@ -1,3 +1,9 @@
+/* home.js
+ * This is the home/about page. Not much going on here.
+ * 
+ * Daniel
+ */
+
 import React from 'react';
 import logo from '../logo.svg';
 

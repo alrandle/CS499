@@ -1,3 +1,10 @@
+/* dashboard.js
+ * This page is responsible for handling most of the generic user functions on the DOM.
+ * Users and admins should be able to load quizes as well as other account related stuff.
+ * 
+ * Daniel
+ */
+
 import React, { useState } from 'react';
 import axios from 'axios';
 

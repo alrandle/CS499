@@ -1,4 +1,10 @@
-// eslint-disable-next-line
+/* logout.js
+ * This page is responsible for letting users logout of the app
+ * All this does is destroy the localStorage variables. 
+ * 
+ * Daniel
+ */
+
 import React from 'react';
 
 class Logout extends React.Component{

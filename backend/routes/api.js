@@ -1,3 +1,11 @@
+/* api.js
+ * This page is responsible for taking all the get and post requests made
+ * by the client and then querys mongo for results. Those results are then
+ * sent back to the client and formatted to display.
+ * 
+ * Daniel
+ */
+
 const express = require('express');
 const session = require('express-session');
 
@@ -146,7 +154,10 @@ router.post('/register', (req, res) => {
 //Route for uploading the quiz from the quiz-creator page
 router.post('/quiz-upload', (req, res) => {
     console.log('[Console]: Body-', req.body);
-    data = req.body;
+    //data = req.body;
+    data = {
+        
+    }
 
     const quiz = new Quiz(data);
 

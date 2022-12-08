@@ -1,4 +1,10 @@
-//Daniel was here :P
+/* index.js
+ * This page is the main backend page that node calls on when starting a server.
+ * Backend plugins and routes should get called in here. 
+ * 
+ * Daniel
+ */
+
 const express = require('express');
 
 const morgan = require('morgan');
@@ -21,6 +27,7 @@ mongoose.connect(MONGODB_URL, () => {
 
 //[Cors]:
 app.use(cors());
+
 //[Express]: 
 //Json Parser
 app.use(express.json());

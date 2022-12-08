@@ -1,3 +1,11 @@
+/* layout.js
+ * This page is responsible for creating the actual navigation bar at the top of the page
+ * The navbar changes based on the login status of a person on the client
+ * Any changes to the navbar should be made here 
+ * 
+ * Daniel
+ */
+
 import { Outlet, Link } from "react-router-dom";
 import logo from '../logo.svg';
 import './css/layout.css';

@@ -1,5 +1,11 @@
+/* register.js
+ * This page is responsible for letting the user register for an account.
+ * This page encrypts the password on the front end before ever getting sent to the client.
+ * 
+ * Daniel
+ */
+
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import "./css/error.css"
 

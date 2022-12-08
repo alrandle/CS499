@@ -1,20 +1,22 @@
+/* Response.js
+ * This page is responsible for creating the mongoose Reponse schema model
+ * connects to the table `quizs_response`
+ * 
+ * Daniel
+ */
+
 const mongoose = require('mongoose');
 
-const questionSchema = new mongoose.Schema({
-    'id': Number,
-    'question': String,
-    'options': {Num: String},
-    'answer': Number
-})
-
-const userSchema = new mongoose.Schema({
-    'quiz_id': Number,
-    'title': String,
-    'tags' : [],
-    'questions' : {questionSchema},
+const responseSchema = new mongoose.Schema({
+    'quiz_id': String,
+    'username': String,
+    'useremail': String,
+    'userID' : String,
+    'answers' : {},
     'date': Date, 
-    'letter-grade' : String,
-    'percentage-grade' : Number
+    'correct' : Number,
+    'incorrect' : Number,
+    'percentage' : Number
 })
 
-mongoose.model('quizs_responses', userSchema);
+mongoose.model('quizs_responses', responseSchema);

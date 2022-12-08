@@ -1,3 +1,10 @@
+/* quiz_creator.js
+ * This page is responsible for allowing admins logged into the client to create a quiz
+ * and upload it to the system. 
+ * 
+ * Daniel
+ */
+
 import React from "react";
 
 class Creator extends React.Component{

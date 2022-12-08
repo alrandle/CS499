@@ -1,3 +1,10 @@
+/* User.js
+ * This page is responsible for creating the mongoose User schema model'
+ * connects to the table `users`
+ * 
+ * Daniel
+ */
+
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
@@ -12,7 +19,8 @@ var userSchema = new mongoose.Schema({
 	},
     'email': String,
     'role': String,
-    'lastlogin' : String
+	'created' : Date,
+    'lastlogin' : Date
 })
 
 module.exports = mongoose.model('users', userSchema);
