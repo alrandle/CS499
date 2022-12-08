@@ -11,3 +11,11 @@
     width: 200px;
     margin-bottom: 10px;
 }
+
+.analytics-box{
+    display: flex;
+}
+.analytics{
+    color: blue;
+    margin-left: 20px;
+}
