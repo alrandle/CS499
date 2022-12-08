@@ -56,9 +56,11 @@ class Exam extends React.Component{
 
     // Renders quiz
     render(){;
+        const title = 'Test';
         return(
             
             <div className='text-center text-white'>
+                <h1>{title}</h1>
                 <div>
                     {this.displayQuiz(this.state.posts)}
                 </div>

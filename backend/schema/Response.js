@@ -12,7 +12,9 @@ const userSchema = new mongoose.Schema({
     'title': String,
     'tags' : [],
     'questions' : {questionSchema},
-    'date': Date
+    'date': Date, 
+    'letter-grade' : String,
+    'percentage-grade' : Number
 })
 
-mongoose.model('quiz_response', userSchema);
+mongoose.model('quizs_responses', userSchema);
