@@ -19,4 +19,4 @@ const responseSchema = new mongoose.Schema({
     'percentage' : Number
 })
 
-mongoose.model('quizs_responses', responseSchema);
+module.exports = mongoose.model('quizs_responses', responseSchema);

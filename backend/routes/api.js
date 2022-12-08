@@ -38,6 +38,17 @@ app.use((req, res, next) => {
     next();
 })
 
+router.get('/quiz/analytics', (req, res) => {
+    Response.find({})
+        .then((data) => {
+            //console.log("Data: ", data);
+            res.json(data);
+        })
+        .catch((error)=>{
+            console.log("[Console]: ", error)
+        })
+});
+
 //Routes
 router.get('/quiz/selection', (req, res) => {
     Quiz.find({})
