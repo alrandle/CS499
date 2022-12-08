@@ -9,7 +9,7 @@ const express = require('express');             // Back end web app framework
 
 const morgan = require('morgan');               // HTTP requests nad errors logger
 const mongoose = require("mongoose");           // Object Date Model for MongoDB
-const cors = require('cors');                   // Prevent CORS errors when running server and client on different ips
+const cors = require('cors');                   // Prevent CORS errors when running server and client on different addresses
 const path = require('path');                   // API router
 
 const app = express();
