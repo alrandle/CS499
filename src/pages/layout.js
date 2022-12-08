@@ -18,7 +18,6 @@ const Layout = () => {
       <>
       <div className="btn-group">
         <nav>
-        <img src={logo} alt="logo" width='10%' />
           <ul className='btn-group btn-group-lg'>
             <li>
               <Link to="/"><button className = 'btn btn-secondary'>Home</button></Link>
@@ -44,7 +43,6 @@ const Layout = () => {
       <>
       <div className="btn-group">
         <nav>
-        <img src={logo} alt="logo" width='10%' />
           <ul className='btn-group btn-group-lg'>
             <li>
               <Link to="/"><button className = 'btn btn-secondary'>Home</button></Link>

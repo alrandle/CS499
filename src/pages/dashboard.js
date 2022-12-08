@@ -95,7 +95,7 @@ class Dashboard extends React.Component{
         if(localStorage.getItem('firstname') == null || localStorage.getItem('lastname') == null){
           return (
             <div className='text-center text-white'>
-              <h1>Dashboard</h1>
+              <h1 className='textFont'>Dashboard</h1>
               <code>Error! You must be logged in to do that!</code>
               <div>
                 <a href='/login' className='btn text-white btn-outline'>Return to login</a>
@@ -119,12 +119,12 @@ class Dashboard extends React.Component{
           return (
             <>
             <div className='text-center text-white'>
-                <h1>Dashboard</h1>
+                <h1 className='textFont'>Dashboard</h1>
                 <br></br>
                 <br></br>
                 <div className='d-flex'>
                     <div className='w-25'>
-                        <h3>Welcome Back</h3>
+                        <h3 className='textFont'>Welcome Back</h3>
                         <p>{name}</p>
                         <p>usrnm: {username}</p>
                         <p>email: {email}</p>
@@ -151,12 +151,12 @@ class Dashboard extends React.Component{
           return (
             <>
             <div className='text-center text-white'>
-                <h1>Dashboard</h1>
+                <h1 className='textFont'>Dashboard</h1>
                 <br></br>
                 <br></br>
                 <div className='d-flex'>
                     <div className='w-25'>
-                        <h3>Welcome Back</h3>
+                        <h3 className='textFont'>Welcome Back</h3>
                         <p>{name}</p>
                         <p>usrnm: {username}</p>
                         <p>email: {email}</p>

@@ -14,9 +14,9 @@ class Home extends React.Component{
       // Welcome page
       return(
         <div className='text-center text-white'>
-          <h1>Welcome</h1>
+          <h1 className='textFont'>Welcome</h1>
           <img src={logo} className="App-logo" alt="logo" />
-          <h3>To get started, please login or register for an account.</h3>
+          <h3 className='textFont'>To get started, please login or register for an account.</h3>
           <br></br><br></br>
         </div>
   
@@ -25,9 +25,9 @@ class Home extends React.Component{
       // log in message
       return(
         <div className='text-center text-white'>
-          <h1>Welcome</h1>
+          <h1 className='textFont'>Welcome</h1>
           <img src={logo} className="App-logo" alt="logo" />
-          <h3>You are logged in as {localStorage.getItem('firstname') + " " + localStorage.getItem('lastname')}</h3>
+          <h3 className='textFont'>You are logged in as {localStorage.getItem('firstname') + " " + localStorage.getItem('lastname')}</h3>
           <br></br><br></br>
         </div>
   

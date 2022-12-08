@@ -94,7 +94,7 @@ class Login extends React.Component{
     // Generates a form to log in a user.
     return(
       <div className='text-center text-white'>
-        <h1>Login</h1>
+        <h1 className='textFont'>Login</h1>
         <div className='text-center text-red' id='error-section'>
         </div>
         <div className="container mt-3">
