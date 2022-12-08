@@ -73,7 +73,7 @@ class Register extends React.Component{
       .then(response => {
         //console.log(response.status) // use this to test response status from server
         console.log('[Console]: Data has been sent to the server!');
-        //window.open('login', "_self");
+        window.open('login', "_self");
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
