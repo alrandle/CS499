@@ -15,27 +15,22 @@ async function newQuestion(){ // all code for the create new questions section
                         <input
                         type="text"
                         placeholder="Question"
-                        classname="form-control"
                         name="question${questionCount}"/>
                         <input
                         type="text"
                         placeholder="answer1"
-                        className="form-control"
                         name="question${questionCount}-answer1"/>
                         <input
                         type="text"
                         placeholder="answer2"
-                        className="form-control"
                         name="question${questionCount}-answer2"/>
                         <input
                         type="text"
                         placeholder="answer3"
-                        className="form-control"
                         name="question${questionCount}-answer3"/>
                         <input
                         type="text"
                         placeholder="answer4"
-                        className="form-control"
                         name="question${questionCount}-answer4"></input>
                         <input
                         type="number"
@@ -103,28 +98,23 @@ class Creator extends React.Component{
                         <input
                         type="text"
                         placeholder="Question"
-                        classname="form-control"
                         name="question1"/>
                         {/* will need to set the value control still*/}
                         <input
                         type="text"
                         placeholder="answer1"
-                        className="form-control"
                         name="question1-answer1"/>
                         <input
                         type="text"
                         placeholder="answer2"
-                        className="form-control"
                         name="question1-answer2"/>
                         <input
                         type="text"
                         placeholder="answer3"
-                        className="form-control"
                         name="question1-answer3"/>
                         <input
                         type="text"
-                        placeholder="answer4"
-                        className="form-control"
+                        placeholder="answer4" 
                         name="question1-answer4"></input>
                         <input
                         type="number"
