@@ -42,9 +42,85 @@ class Exam extends React.Component{
             <form>
                 <h1 id={post.title}>{post.title}</h1>
                 <p id={post.creator}>By {post.creator}</p>
-
                 <p>#{index+1}: {post.questions.q1.question}</p>
-                <button type='button' className='btn btn-secondary'>Submit</button>
+                <div className="radio">
+                    <label>
+                        <input type="radio" value="option1" checked={true} />
+                        {post.questions.q1.options.a1}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option2" />
+                        {post.questions.q1.options.a2}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option3" />
+                        {post.questions.q1.options.a3}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option3" />
+                        {post.questions.q1.options.a4}
+                    </label>
+                </div>
+                <br></br>
+                <p>#{index+2}: {post.questions.q2.question}</p>
+                <div className="radio">
+                    <label>
+                        <input type="radio" value="option1" checked={true} />
+                        {post.questions.q2.options.a1}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option2" />
+                        {post.questions.q2.options.a2}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option3" />
+                        {post.questions.q2.options.a3}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option3" />
+                        {post.questions.q2.options.a4}
+                    </label>
+                </div>
+                <br></br>
+                <p>#{index+3}: {post.questions.q3.question}</p>
+                <div className="radio">
+                    <label>
+                        <input type="radio" value="option1" checked={true} />
+                        {post.questions.q3.options.a1}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option2" />
+                        {post.questions.q3.options.a2}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option3" />
+                        {post.questions.q3.options.a3}
+                    </label>
+                    </div>
+                    <div className="radio">
+                    <label>
+                        <input type="radio" value="option3" />
+                        {post.questions.q3.options.a4}
+                    </label>
+                </div>
+                <br></br>
+                <button type='button' className='btn btn-outline-light'>Submit</button>
             </form>
             </div> 
         ));
@@ -67,7 +143,7 @@ class Exam extends React.Component{
     // Renders quiz
     render(){
         return(
-            <div className='text-center text-white'>
+            <div className='text-center text-white container'>
                 {this.displayQuiz(this.state.posts)}
             </div>
         );

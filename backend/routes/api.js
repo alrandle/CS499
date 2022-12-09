@@ -114,7 +114,7 @@ router.post('/login', (req, res) => {
 
             }else{
                 //return invalid password
-                res.send("[Console]: Hash not matched! Try Again!");
+                res.status(500).send("[Console]: Hash not matched! Try Again!");
             }
             
         }

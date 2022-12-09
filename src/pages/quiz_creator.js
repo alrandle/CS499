@@ -58,6 +58,9 @@ class Creator extends React.Component{
         q1a3 : "",
         q1a4 : "",
         q1ca : "",
+        tags:[],
+        date : "",
+        
     }
 
     handleFormSubmission = async (event) => {

@@ -62,15 +62,17 @@ class Dashboard extends React.Component{
         // Not admin
         else {
           // Returns quizzes with info
-            return posts.map((post, index) => (
-                <div key={index}>
-                  <a id={post._id} className='d-flex btn btn-dark justify-left text-left'>
-                    <div className='align-center text-left d-flex'>
-                      <p className='align-center'>{post.title} | Uploaded: {post.date} | Creator: {post.creator}</p>
-                    </div>
-                  </a>
+          return posts.map((post, index) => (
+            <div id={index} key ={index}>
+                <div className='align-center text-left'>
+                    <div className='flex-column'><h3 className='align-center'>{post.title}</h3>
+                        <p></p></div>
+                  <p className='align-center'>Uploaded: {post.date} by {post.creator}</p>
+                  <button id={post._id} type="button" className="btn btn-outline-light" onClick={() => this.handleClick(post._id)}>Load</button>
+                  <br></br><br></br>
                 </div>
-              ));
+            </div>
+          ));
         }
     };
 
@@ -152,24 +154,28 @@ class Dashboard extends React.Component{
         else {
           return (
             <>
+            <div className='container'>
             <div className='text-center text-white'>
                 <h1 className='textFont'>Dashboard</h1>
                 <br></br>
                 <br></br>
                 <div className='d-flex'>
-                    <div className='w-25'>
+                    <div className='w-25 m-2 p-2 bg-dark-transparent'>
                         <h3 className='textFont'>Welcome Back</h3>
-                        <p>{name}</p>
-                        <p>usrnm: {username}</p>
-                        <p>email: {email}</p>
+                        <hr></hr>
+                        <p className='textFont'>{name}</p>
+                        <p className='textFont'>usrnm: {username}</p>
+                        <p className='textFont'>email: {email}</p>
                     </div>
-                    <div className='w-100'>
-                        <h3>All Quizes</h3>
+                    <div className='w-100 m-2 p-2 bg-dark-transparent'>
+                        <h2>All Quizes</h2>
+                        <hr></hr>
                         <div className='quizs'>
-                        {this.displayQuizes(this.state.posts)}
+                          {this.displayQuizes(this.state.posts, role)}
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             </>
         );
