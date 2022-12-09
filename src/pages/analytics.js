@@ -75,7 +75,7 @@ class Analytics extends React.Component{
         <br></br>
         <div className='text-center text-white'>
           <h3>Please Select A Quiz From Below To Grade</h3>
-          <button onClick={loadGrades}>Click To Load Grades</button>
+          <button onClick={loadGrades} className='btn btn-outline-light'>Click To Load Grades</button>
         </div>
         <br></br>
         <div className='text-center text-white'>

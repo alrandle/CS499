@@ -6,12 +6,13 @@
  */
 
 import React from "react";
-import "./css/quiz-create.css"
+import "./css/quiz-create.css";
+import logo from '../img/logo.svg';
 
 let questionCount = 2 // used to keep track of the question number
 async function newQuestion(){ // all code for the create new questions section
     console.log(`testing new button ${questionCount}`)
-    const questionSection = `<label class="questions">Question ${questionCount}
+    const questionSection = `<label class="questions">Question ${questionCount} 
                         <input
                         type="text"
                         placeholder="Question"
@@ -67,7 +68,6 @@ class Creator extends React.Component{
         return (
             <div className="text-center text-white">
                 <h1 className="textFont"> Quiz Creator </h1>
-                <button onClick={newQuestion}>New Question</button>
                     <div className="w-100">
                     <form onSubmit={this.handleRegsitrationForm} autoComplete="off">
                 <div className="w-100">
@@ -122,11 +122,12 @@ class Creator extends React.Component{
                         min="1"
                         max="4"/>
                     </label>
-
                 </div>
-                    </form>
-                    </div>
-            </div>);
+                <button type='button' onClick={newQuestion} className='btn btn-outline-light'>New Question</button>
+                <button type='submit' onClick={this.handleFormSubmission} className='btn btn-outline-light'>Submit</button>
+            </form>
+        </div>
+    </div>);
     }
 }
 export default Creator;

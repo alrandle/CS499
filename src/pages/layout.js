@@ -8,6 +8,7 @@
 
 import { Outlet, Link } from "react-router-dom";
 import './css/layout.css';
+import logo from '../img/logo.svg';
 
 const Layout = () => {
   // If email or username is blank
@@ -15,23 +16,13 @@ const Layout = () => {
     // Load buttons
     return (
       <>
-      <div className="">
-        <nav>
-          <ul className='btn-group'>
-            <li>
-              <Link to="/"><button className='btn btn-outline-light'>Home</button></Link>
-            </li>
-            <li>
-              <Link to="/login"><button className = 'btn btn-outline-light'>Login</button></Link>
-            </li>
-            <li>
-              <Link to="/register"><button className = 'btn btn-outline-light'>Register</button></Link>
-            </li>
-          </ul>
-        </nav>
-        </div>
-  
-        <Outlet />
+      <div className="p-2">
+      <img src={logo} className="App-logo m-0 p-0" alt="logo" style={{width: 60, height: 60}}></img>
+          <Link to="/"><button className='btn btn-outline-light'>Home</button></Link>
+          <Link to="/login"><button className = 'btn btn-outline-light'>Login</button></Link>
+          <Link to="/register"><button className = 'btn btn-outline-light'>Register</button></Link>
+      </div>
+      <Outlet />
       </>
     )
   }
@@ -40,23 +31,13 @@ const Layout = () => {
     // Show logout button instead of login
     return (
       <>
-      <div className="btn-group">
-        <nav>
-          <ul className='btn-group btn-group'>
-            <li>
-              <Link to="/"><button className = 'btn btn-outline-light'>Home</button></Link>
-            </li>
-            <li>
-              <Link to="/dashboard"><button className = 'btn btn-outline-light'>Dashboard</button></Link>
-            </li>
-            <li>
-              <Link to="/logout"><button className = 'btn btn-outline-light'>Logout</button></Link>
-            </li>
-          </ul>
-        </nav>
-        </div>
-  
-        <Outlet />
+      <div className="p-2">
+      <img src={logo} className="App-logo m-0 p-0" alt="logo" style={{width: 60, height: 60}}></img>
+        <Link to="/"><button className = 'btn btn-outline-light'>Home</button></Link>
+        <Link to="/dashboard"><button className = 'btn btn-outline-light'>Dashboard</button></Link>
+        <Link to="/logout"><button className = 'btn btn-outline-light'>Logout</button></Link>
+      </div>
+      <Outlet />
       </>
     )
   }

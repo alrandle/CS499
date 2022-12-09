@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import './css/dashboard.css';
 
 class Dashboard extends React.Component{
 
@@ -52,7 +53,7 @@ class Dashboard extends React.Component{
                         <div className='flex-column'><h3 className='align-center'>{post.title}</h3>
                             <p></p></div>
                       <p className='align-center'>Uploaded: {post.date} by {post.creator}</p>
-                      <button id={post._id} type="button" className="btn btn-secondary" onClick={() => this.handleClick(post._id)}>Load</button>
+                      <button id={post._id} type="button" className="btn btn-outline-light" onClick={() => this.handleClick(post._id)}>Load</button>
                       <br></br><br></br>
                     </div>
                 </div>
@@ -118,30 +119,31 @@ class Dashboard extends React.Component{
         if(localStorage.getItem('role') == 'admin'){
           return (
             <>
+            <div className='container'>
             <div className='text-center text-white'>
                 <h1 className='textFont'>Dashboard</h1>
                 <br></br>
                 <br></br>
                 <div className='d-flex'>
-                    <div className='w-25'>
+                    <div className='w-25 m-2 p-2 bg-dark-transparent'>
                         <h3 className='textFont'>Welcome Back</h3>
-                        <p>{name}</p>
-                        <p>usrnm: {username}</p>
-                        <p>email: {email}</p>
-                        <p>Role: <code>{role}</code></p>
-                        
-                        
-                        <a href='/quiz-creator' className='btn btn-secondary'>Create A Quiz</a>
-                        <a href='/analytics' className='btn btn-secondary'>Quiz Analytics/Grades</a>
+                        <hr></hr>
+                        <p className='textFont'>{name}</p>
+                        <p className='textFont'>usrnm: {username}</p>
+                        <p className='textFont'>email: {email}</p>
+                        <p className='textFont'>Role: <code>{role}</code></p>
+                        <a href='/quiz-creator' className='btn btn-outline-light w-100'>Create A Quiz</a>
+                        <a href='/analytics' className='btn btn-outline-light w-100'>Quiz Analytics/Grades</a>
                     </div>
-                    <div className='w-100'>
+                    <div className='w-100 m-2 p-2 bg-dark-transparent'>
                         <h3>All Quizes</h3>
                         <hr></hr>
                         <div className='quizs'>
-                        {this.displayQuizes(this.state.posts, role)}
+                          {this.displayQuizes(this.state.posts, role)}
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             </>
         );
