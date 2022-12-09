@@ -8,21 +8,6 @@
 import React from 'react';
 import axios from 'axios';
 
-function DisplayQuestions(posts){
-
-    //console.log(posts[0]["questions"][0]["question"])
-    //console.log(posts[0]["questions"][0])
-    let question = posts[0]["questions"][0]["question"]
-    let choices = posts[0]["questions"][0]["options"]
-    let choice1 = choices["1"] // option for choice 1
-    let choice2 = choices["2"] // option for choice 2
-    let choice3 = choices["3"]
-    let choice4 = choices["4"]
-    console.log(`questions: ${question} option1: ${choice1} option2: ${choice2} option3: ${choice3} option4: ${choice4}`)
-
-}
-
-
 class Exam extends React.Component{
     state = {
         quizID:'',
@@ -57,15 +42,16 @@ class Exam extends React.Component{
             <form>
                 <h1 id={post.title}>{post.title}</h1>
                 <p id={post.creator}>By {post.creator}</p>
+
+                <p>#{index+1}: {post.questions.q1.question}</p>
                 <button type='button' className='btn btn-secondary'>Submit</button>
             </form>
-            </div>
-            ));
+            </div> 
+        ));
 
-        return map;
+        return map ;
     }
     
-
     // Updates the state of the target.
     handleEventUpdate = (event) => {
         const target = event.target;
@@ -77,22 +63,14 @@ class Exam extends React.Component{
         })
       };
 
-    getID = () =>{
-        
-    }
-
 
     // Renders quiz
     render(){
         return(
-            <>
             <div className='text-center text-white'>
                 {this.displayQuiz(this.state.posts)}
             </div>
-            <h5 className='text-center text-white'>Questions: </h5>
-            <div id='showing-area'></div>
-            </>
-        )
+        );
     }
 }
 
