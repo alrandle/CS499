@@ -44,13 +44,13 @@ const Layout = () => {
         <nav>
           <ul className='btn-group btn-group-lg'>
             <li>
-              <Link to="/"><button className = 'btn btn-secondary'>Home</button></Link>
+              <Link to="/"><button className = 'navBtn'>Home</button></Link>
             </li>
             <li>
-              <Link to="/dashboard"><button className = 'btn btn-secondary'>Dashboard</button></Link>
+              <Link to="/dashboard"><button className = 'navBtn'>Dashboard</button></Link>
             </li>
             <li>
-              <Link to="/logout"><button className = 'btn btn-secondary'>Logout</button></Link>
+              <Link to="/logout"><button className = 'navBtn'>Logout</button></Link>
             </li>
           </ul>
         </nav>
