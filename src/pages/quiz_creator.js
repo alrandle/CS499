@@ -53,6 +53,42 @@ class Creator extends React.Component{
         title : ""
     }
 
+    handleFormSubmission = async (event) => {
+        event.preventDefault();
+    
+        const payload = {
+          username: this.state.username,
+          password:{
+            hash: hash,
+            salt: salt
+          },
+          name:{
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+          },
+          email: this.state.email,
+          role: "user",
+          lastlogin: new Date()
+        };
+    
+        axios({
+          url: 'http://localhost:8080/api/register',
+          method: 'POST',
+          data: payload
+        })
+          //User redirect needs to go in this statement.
+          .then(response => {
+            //console.log(response.status) // use this to test response status from server
+            console.log('[Console]: Data has been sent to the server!');
+            window.open('login', "_self");
+          })
+          //Error handling should be sent to a notification box on the DOM
+          .catch(() => {
+            this.errorHandlingServer();
+            console.log('[Console]: Internal Server Error!');
+          })
+    }
+
     handleEventUpdate = (event) => {
         const target = event.target;
         const name = target.name;

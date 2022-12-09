@@ -70,8 +70,8 @@ class Analytics extends React.Component{
 
   render(){
     return(
-      <div className='text-center text-white'>
-        <h1>Quiz analytics</h1>
+      <div className='text-center text-white container'>
+        <h1>Quiz Analytics</h1>
         <br></br>
         <div className='text-center text-white'>
           <h3>Please Select A Quiz From Below To Grade</h3>
@@ -79,8 +79,8 @@ class Analytics extends React.Component{
         </div>
         <br></br>
         <div className='text-center text-white'>
-          <h3>Here are your individual student grades</h3>
-          <div id='student-grades'> </div>
+          <hr></hr>
+          <div id='student-grades' className='d-flex'> </div>
         </div>
       </div>
     )

@@ -9,7 +9,7 @@
 * Create quizzes for users
 * Quiz Analytics
 
-# To Download & Install
+# To Download & Run
     $ git clone https://github.com/alrandle/CS499.git
     $ cd ./CS499/backend
     $ npm run all
@@ -68,7 +68,12 @@
     Dashboard: navigate app
 
 ### Mongo Server
+    Our instance uses default port 27017
+
     ** Main Collections **
+
+    use quiz;
+
     db.createCollection('users');
     db.createCollection('quizs');
     db.createCollection('quizs_responses');

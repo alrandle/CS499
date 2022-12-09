@@ -136,7 +136,7 @@ class Dashboard extends React.Component{
                         <a href='/analytics' className='btn btn-outline-light w-100'>Quiz Analytics/Grades</a>
                     </div>
                     <div className='w-100 m-2 p-2 bg-dark-transparent'>
-                        <h3>All Quizes</h3>
+                        <h2>All Quizes</h2>
                         <hr></hr>
                         <div className='quizs'>
                           {this.displayQuizes(this.state.posts, role)}
