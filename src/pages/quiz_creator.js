@@ -8,6 +8,7 @@
 import React from "react";
 import "./css/quiz-create.css";
 import logo from '../img/logo.svg';
+import axios from 'axios';
 
 let questionCount = 2 // used to keep track of the question number
 async function newQuestion(){ // all code for the create new questions section
@@ -50,29 +51,27 @@ async function newQuestion(){ // all code for the create new questions section
 
 class Creator extends React.Component{
     state = {
-        title : ""
+        title : "",
+        question1 : "",
+        q1a1 : "",
+        q1a2 : "",
+        q1a3 : "",
+        q1a4 : "",
+        q1ca : "",
     }
 
     handleFormSubmission = async (event) => {
         event.preventDefault();
     
         const payload = {
-          username: this.state.username,
-          password:{
-            hash: hash,
-            salt: salt
-          },
-          name:{
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-          },
-          email: this.state.email,
-          role: "user",
-          lastlogin: new Date()
+          title: this.state.title,
+          creator: localStorage.getItem('username'),
+          creatorid: localStorage.getItem('_id'),
+          
         };
     
         axios({
-          url: 'http://localhost:8080/api/register',
+          url: 'http://localhost:8080/api/quiz/exam',
           method: 'POST',
           data: payload
         })
@@ -116,17 +115,7 @@ class Creator extends React.Component{
                         value={this.state.title}
                         onChange={this.handleEventUpdate}
                         required/>
-                    </label>
-                    <input
-                        type="hidden"
-                        name='creatorid'
-                        value={localStorage.getItem('_id')}
-                        required/>
-                    <input 
-                        type="hidden"
-                        name='creator'
-                        value={localStorage.getItem('username')}
-                        required/>                        
+                    </label>                   
                 </div>
                 <div className="w-100"
                 id="questions-section">

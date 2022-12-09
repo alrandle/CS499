@@ -33,9 +33,17 @@ class Register extends React.Component{
     })
   };
 
-  // Register error handler
+  // Internal error handling
   errorHandlingServer =() => {
     const message = ["<br></br><h3> There was an internal error. Please try again later </h3><br></br>"]
+    const placeLocation = document.getElementById("error-section")
+    placeLocation.innerHTML = message;
+    let col = "red";
+    placeLocation.style.borderColor = col;
+  }
+  // Invalid username/password error handling
+  errorHandlingRegister =() => {
+    const message = ["<br></br><h3> Invalid username or password </h3><br></br>"]
     const placeLocation = document.getElementById("error-section")
     placeLocation.innerHTML = message;
     let col = "red";
@@ -77,7 +85,7 @@ class Register extends React.Component{
       })
       //Error handling should be sent to a notification box on the DOM
       .catch(() => {
-        this.errorHandlingServer();
+        this.errorHandlingRegister();
         console.log('[Console]: Internal Server Error!');
       })
   }

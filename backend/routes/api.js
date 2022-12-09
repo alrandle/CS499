@@ -64,7 +64,7 @@ router.get('/quiz/selection', (req, res) => {
 router.get(`/quiz/exam`, (req, res) => {
     const quizID = req.params.quizID;
     console.log("QuizID: ", quizID)
-    Quiz.find({_id : '638eeeae3b0915a34e2a4bf5'})
+    Quiz.find({_id : '638eeea33b0915a34e2a4bf4'})
         .then((data) => {
             res.status(200).json(data);
             console.log("Data: ", data);

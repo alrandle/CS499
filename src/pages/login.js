@@ -130,15 +130,6 @@ class Login extends React.Component{
       </div>
     );
   }
-  /*
-  return (
-    <div className='text-center text-white'>
-      <div className='form'>
-        
-        {isSubmitted ? <div>User is successfully logged in</div> : pageForm}
-      </div>
-    </div>
-  );*/
 }
 
 
