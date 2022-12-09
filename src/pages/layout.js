@@ -7,7 +7,6 @@
  */
 
 import { Outlet, Link } from "react-router-dom";
-import logo from '../logo.svg';
 import './css/layout.css';
 
 const Layout = () => {
@@ -20,13 +19,13 @@ const Layout = () => {
         <nav>
           <ul className='btn-group btn-group-lg'>
             <li>
-              <Link to="/"><button className = 'btn btn-secondary'>Home</button></Link>
+              <Link to="/"><button className = 'navBtn'>Home</button></Link>
             </li>
             <li>
-              <Link to="/login"><button className = 'btn btn-secondary'>Login</button></Link>
+              <Link to="/login"><button className = 'navBtn'>Login</button></Link>
             </li>
             <li>
-              <Link to="/register"><button className = 'btn btn-secondary'>Register</button></Link>
+              <Link to="/register"><button className = 'navBtn'>Register</button></Link>
             </li>
           </ul>
         </nav>
