@@ -19,6 +19,7 @@
 
 li {
   float: left;
+  color: white;
 }
 
 li a {
@@ -35,7 +36,7 @@ li a:hover {
 }
 
 .nav-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -78,4 +79,18 @@ li a:hover {
 .btn{
   margin: 2px;
   font-family: "Typograph-PRO-Semi-Bold", sans-serif;
+}
+
+.navBtn {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Typograph-PRO-Semi-Bold", sans-serif;
+  font-weight: 300;
+  transition: all 0.2s;
+}
+
+.navBtn:hover {
+  color: #c04848
 }
