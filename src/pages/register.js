@@ -93,7 +93,7 @@ class Register extends React.Component{
         </div>
         <div className="container mt-3">
           <form onSubmit={this.handleRegsitrationForm} autoComplete="off">
-            <div className="mb-3 mt-3">
+            <div className="mb-3 mt-3 form-outline form-white">
               <label>Username:
               <input 
                 type="text" 
@@ -104,7 +104,7 @@ class Register extends React.Component{
                 required/>
               </label>
             </div>
-            <div className="mb-3 mt-3">
+            <div className="mb-3 mt-3 form-outline form-white">
               <label>Firstname:
               <input 
                 type="text" 
@@ -126,7 +126,7 @@ class Register extends React.Component{
                 required/>
               </label>
             </div>
-            <div className="mb-3">
+            <div className="mb-3 form-outline form-white">
               <label>Email:
               <input 
                 type="email" 
@@ -138,7 +138,7 @@ class Register extends React.Component{
                 required/>
               </label>
             </div>
-            <div className="mb-3">
+            <div className="mb-3 form-outline form-white">
               <label>Password:
               <input 
                 type="password" 
@@ -149,8 +149,8 @@ class Register extends React.Component{
                 required/>
               </label>
             </div>
-          <a href='/login' className='btn btn-secondary' >Already a user?</a>
-          <button type="submit" className="btn btn-secondary">Submit</button>
+          <a href='/login' className='btn btn-outline-light' >Already a user?</a>
+          <button type="submit" className="btn btn-outline-light">Submit</button>
         </form>
       </div>
     </div>

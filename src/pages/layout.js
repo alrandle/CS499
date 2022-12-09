@@ -15,17 +15,17 @@ const Layout = () => {
     // Load buttons
     return (
       <>
-      <div className="btn-group">
+      <div className="">
         <nav>
-          <ul className='btn-group btn-group-lg'>
+          <ul className='btn-group'>
             <li>
-              <Link to="/"><button className = 'navBtn'>Home</button></Link>
+              <Link to="/"><button className='btn btn-outline-light'>Home</button></Link>
             </li>
             <li>
-              <Link to="/login"><button className = 'navBtn'>Login</button></Link>
+              <Link to="/login"><button className = 'btn btn-outline-light'>Login</button></Link>
             </li>
             <li>
-              <Link to="/register"><button className = 'navBtn'>Register</button></Link>
+              <Link to="/register"><button className = 'btn btn-outline-light'>Register</button></Link>
             </li>
           </ul>
         </nav>
@@ -42,15 +42,15 @@ const Layout = () => {
       <>
       <div className="btn-group">
         <nav>
-          <ul className='btn-group btn-group-lg'>
+          <ul className='btn-group btn-group'>
             <li>
-              <Link to="/"><button className = 'btn btn-secondary'>Home</button></Link>
+              <Link to="/"><button className = 'btn btn-outline-light'>Home</button></Link>
             </li>
             <li>
-              <Link to="/dashboard"><button className = 'btn btn-secondary'>Dashboard</button></Link>
+              <Link to="/dashboard"><button className = 'btn btn-outline-light'>Dashboard</button></Link>
             </li>
             <li>
-              <Link to="/logout"><button className = 'btn btn-secondary'>Logout</button></Link>
+              <Link to="/logout"><button className = 'btn btn-outline-light'>Logout</button></Link>
             </li>
           </ul>
         </nav>

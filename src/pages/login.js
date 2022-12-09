@@ -123,8 +123,8 @@ class Login extends React.Component{
                   required/>
               </label>
             </div>
-            <button type="submit" className="btn btn-secondary">Submit</button>
-            <a href='/register' className='btn btn-secondary' >Dont have an account?</a>
+            <button type="submit" className="btn btn-outline-light">Submit</button>
+            <a href='/register' className='btn btn-outline-light' >Dont have an account?</a>
           </form>
         </div>
       </div>
